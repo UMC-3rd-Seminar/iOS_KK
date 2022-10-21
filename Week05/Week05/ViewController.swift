@@ -25,12 +25,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
     @IBOutlet weak var memoTableView: UITableView!
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         memoTableView.delegate = self
         memoTableView.dataSource = self
         
+        initRefreshControl()
+    }
+    
+    func initRefreshControl(){
+        memoTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: UIControl.Event.valueChanged) //값이 변경되는 부분이 생길 때 작동시키겠다
+        //refreshControl에 action을 부여한다. IBAction과 같은 뜻
+    }
+    
+    //오브젝트 C로 컴파일 되는 함수 , addTarget이 오브젝트 C기반으로 작동함
+    @objc func handleRefreshControl(){
+        //새로고침 작동할 때 어떤 기능을 넣을 것인가
+        //Update your content
+        print("새로고침 됨!!!!")
+        //Dismiss the refresh control
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { //delay 보여주기
+            self.refreshControl.endRefreshing()
+        }
+        //스레드 관리하는 내용
     }
     
     let memoData: [MemoDataModel]
