@@ -9,7 +9,7 @@ UMC 3rd iOS Part Repo
 | 2주차    | `Layout`                       |                                                                         |    [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week01)     |
 | 3주차    | `Life Cycle`                   | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03) | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03) |
 | 4주차    | `Table View` `Collection View` | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04) | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04)|
-| 5주차    | `Open Source`                  |
+| 5주차    | `Open Source`                  | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week05) |
 | 6주차    | `Thread`                       |
 | 7주차    | `DB` `DBMS`                    |
 | 8주차    | `Animation` `Gesture`          |
