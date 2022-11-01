@@ -9,12 +9,16 @@ import UIKit
 import Lottie
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var sectionHeader = ["1 section header", "2 section header"]
-    var sectionFooter = ["1 section footer", "2 section footer"]
+    var sectionHeader = ["MemoData Header", "ExampleData Header"]
+    var sectionFooter = ["MemoData footer", "ExampleData footer"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memoData.count
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+            return sectionHeader.count
+        }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionHeader[section]
@@ -28,9 +32,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         guard let memoCell = tableView.dequeueReusableCell(withIdentifier: "MemoTableViewCell", for: indexPath) as? MemoTableViewCell else {return UITableViewCell()}
         
+        if indexPath.section == 0 {
         memoCell.titleLabel.text = memoData[indexPath.row].title
         memoCell.timeLabel.text = memoData[indexPath.row].time
         memoCell.contentLabel.text = memoData[indexPath.row].content
+        } else if indexPath.section == 1 {
+            memoCell.titleLabel.text = exampleData[indexPath.row].title
+            memoCell.timeLabel.text = exampleData[indexPath.row].time
+            memoCell.contentLabel.text = exampleData[indexPath.row].content
+        } else {
+            return UITableViewCell()
+        }
         
         return memoCell
     }
@@ -95,7 +107,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             , MemoDataModel(title: "스터디 방법", time: "2022. 9. 21", content: "워크북 미리 받아오기")
             , MemoDataModel(title: "OT PPT", time: "2022. 9. 18", content: "추가 텍스트 없음")
             , MemoDataModel(title: "소이 베이스", time: "2022. 9. 6", content: "생크림2 두유 1500ml")
-            , MemoDataModel(title: "메모 table view", time: "2022. 8. 23", content: "memo table view and cell practice")
+        ]
+    let exampleData: [MemoDataModel]
+    = [
+        MemoDataModel(title: "메모 table view", time: "2022. 8. 23", content: "memo table view and cell practice")
             , MemoDataModel(title: "메모 table view", time: "2022. 8. 23", content: "memo table view and cell practice")
             , MemoDataModel(title: "메모 table view", time: "2022. 8. 23", content: "memo table view and cell practice")
             , MemoDataModel(title: "메모 table view", time: "2022. 8. 23", content: "memo table view and cell practice")
