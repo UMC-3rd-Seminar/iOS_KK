@@ -6,10 +6,22 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var sectionHeader = ["1 section header", "2 section header"]
+    var sectionFooter = ["1 section footer", "2 section footer"]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memoData.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionHeader[section]
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return sectionFooter[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,6 +38,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var memoTableView: UITableView!
     let refreshControl = UIRefreshControl()
+
+    lazy var lottieView: LottieAnimationView = {
+        let animationView = LottieAnimationView(name: "lottie-indicator")
+            animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            let centerX = UIScreen.main.bounds.width / 2 - 10
+            animationView.center = CGPoint(x: centerX, y: 40)
+            animationView.contentMode = .scaleAspectFit
+            animationView.stop()
+            animationView.isHidden = true
+            return animationView
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,19 +60,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func initRefreshControl(){
-        memoTableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: UIControl.Event.valueChanged) //값이 변경되는 부분이 생길 때 작동시키겠다
+        refreshControl.addSubview(lottieView)
+        refreshControl.tintColor = .clear
+        refreshControl.addTarget(self, action: #selector(refreshTableView(refreshControl:)), for: UIControl.Event.valueChanged) //값이 변경되는 부분이 생길 때 작동시키겠다
         //refreshControl에 action을 부여한다. IBAction과 같은 뜻
+        
+        memoTableView.refreshControl = refreshControl
     }
     
     //오브젝트 C로 컴파일 되는 함수 , addTarget이 오브젝트 C기반으로 작동함
-    @objc func handleRefreshControl(){
+    @objc func refreshTableView(refreshControl: UIRefreshControl){
         //새로고침 작동할 때 어떤 기능을 넣을 것인가
         //Update your content
         print("새로고침 됨!!!!")
         //Dismiss the refresh control
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { //delay 보여주기
-            self.refreshControl.endRefreshing()
+        lottieView.isHidden = false
+        lottieView.play()
+                
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.lottieView.isHidden = true
+            self.lottieView.stop()
+            self.memoTableView.reloadData()
+            refreshControl.endRefreshing()
         }
         //스레드 관리하는 내용
     }
