@@ -7,9 +7,13 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
-    @IBOutlet weak var firstView: UIView!
-    @IBOutlet weak var secondView: UIView!
+
+    @IBOutlet weak var timer: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var resultLabel: UILabel!
+    
     
     var colorList: [UIColor] = [
         .green,
@@ -28,41 +32,50 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
         threadTest()
+            
+        let url = URL(string: "https://i.ytimg.com/vi/NajU2NJrvws/maxresdefault.jpg")
+        resultLabel.text = "이미지 다운로드 중!"
+        imageView.load(url: url!, lab: resultLabel!)
     }
-    
+        
     func threadTest(){
-//        DispatchQueue.global().async {
-//            for color in self.colorList{
-//                DispatchQueue.main.sync {
-//                    self.firstView.backgroundColor = color
-//                }
-//                sleep(1)
-//            }
-//        }
-//
-//        DispatchQueue.global().async {
-//            for color in self.colorList.reversed(){
-//                DispatchQueue.main.sync {
-//                    self.secondView.backgroundColor = color
-//                }
-//                sleep(1)
-//            }
-//        }
-        DispatchQueue.global().sync {
-            for i in 1...10{
-                print(i)
+        DispatchQueue.global().async {
+            for color in self.colorList{
+                DispatchQueue.main.async {
+                    self.timer.textColor = color
+                }
+                sleep(1)
             }
         }
-        DispatchQueue.global().sync {
-            for i in 11...20{
-                print(i)
+        
+        DispatchQueue.global().async {
+            for i in (0...10).reversed(){
+                DispatchQueue.main.async {
+                    self.timer.text = String(i)
+                }
+                sleep(1)
+            }
+            DispatchQueue.main.async {
+                self.resultLabel.text = "타이머 종료!"
             }
         }
     }
     
-    
-
-
+}
+extension UIImageView {
+    func load(url: URL, lab: UILabel) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                        lab.text = "이미지 다운로드 완료!"
+                    }
+                }
+            }
+        }
+    }
 }
 
