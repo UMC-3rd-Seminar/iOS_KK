@@ -3,16 +3,16 @@ UMC 3rd iOS Part Repo
 </br>
 
 ## 🍏UMC 3rd iOS 커리큘럼🍏
-| **주차** | **내용**                         |                                 **실습**                                  |                                **스탠다드**                                 |                             **챌린지**                              | 
-|--------|--------------------------------|:-----------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
-| 1주차    | `iOS` `Xcode 소개`               |                                                                         |                                                                         | [🍎](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week01) |
-| 2주차    | `Layout`                       |                                                                         |    [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week01)     |
-| 3주차    | `Life Cycle`                   | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03) | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03) |
-| 4주차    | `Table View` `Collection View` | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04) | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04)|
-| 5주차    | `Open Source`                  | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week05) |
-| 6주차    | `Thread`                       | [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/commit/c789bd05463e490c47ff26e71255a44d4eb5be93#diff-0b09557422229afb0c285d5c066ed9605fb6901441533178687935384ee09798)|
-| 7주차    | `DB` `DBMS`                    |
-| 8주차    | `Animation` `Gesture`          |
-| 9주차    | `Network`                      |
-| 10주차   | `Token` `Login`                 |
+| **주차** | **내용**                         |                                                                                **실습**                                                                                |                                **스탠다드**                                 |                             **챌린지**                              | 
+|--------|--------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
+| 1주차    | `iOS` `Xcode 소개`               |                                                                                                                                                                      |                                                                         | [🍎](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week01) |
+| 2주차    | `Layout`                       |                                                                                                                                                                      |    [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week01)     |
+| 3주차    | `Life Cycle`                   |                                               [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03)                                                | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week03/Week03) |
+| 4주차    | `Table View` `Collection View` |                                               [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04)                                                | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week04/Week04)|
+| 5주차    | `Open Source`                  |                                                   [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week05)                                                   |
+| 6주차    | `Thread`                       |[✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/commit/c789bd05463e490c47ff26e71255a44d4eb5be93#diff-0b09557422229afb0c285d5c066ed9605fb6901441533178687935384ee09798) | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/commit/1b28f221e443a567c2f2165e08ebe6d3583b4430) | 
+| 7주차    | `DB` `DBMS`                    |                                               [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week07/Week07) |                                                 
+| 8주차    | `Animation` `Gesture`          |                                    [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/blob/main/Week08/Week08/ViewController.swift)                                      | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/commit/775a56a9e4c43b1f4509ba879d8a83c3f5792185) | 
+| 9주차    | `Network`                      |                                               [✔️](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week09/Week09)                                                | [🍏](https://github.com/UMC-3rd-Seminar/iOS_KK/tree/main/Week09-2) | 
+| 10주차   | `Token` `Login`                 |                                                                                  X                                                                                   | X | X|
     
